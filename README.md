@@ -1,2 +1,2 @@
-# jump_fantasticalwood_chess_vscript
- A vscript used on map jump_fantasticalwood in TF2.
+# jump_fantasticalwood Chess VScript
+A vscript from my jump map jump_fantasticalwood. To download the map, see: https://jump.tf/forum/index.php?topic=3449.0
