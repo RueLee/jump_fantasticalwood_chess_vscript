@@ -1812,6 +1812,11 @@ function Apply_Piece_Move(params) {
                         return;
                     }
                 }
+                else if (occupied_piece_board[i][j].getPieceName().find("rook") != null) {
+                    if (occupied_piece_board[i][j].getCastleStatus()) {
+                        occupied_piece_board[i][j].setCastleStatus(false);
+                    }
+                }
                 else if (occupied_piece_board[i][j].getPieceName().find("king") != null) {
                     if (occupied_piece_board[i][j].getColor() == 0) {
                         whiteKingPosition = [i, j];
@@ -1838,7 +1843,7 @@ function Apply_Piece_Move(params) {
 
                 CheckmateListener();
                 Cycle_Turns();
-                break;
+                return;
             }
         }
     }
@@ -1960,7 +1965,7 @@ function StalemateListener() {
             }
         }
     }
-    ClientPrint(null, 3, "\x0787CEEB[\x0740E0D0Chess Manager\x0787CEEB]\x01 Game has ended in a stalemate! No winner has been decided!");
+    ClientPrint(null, 3, "\x0787CEEB[\x0740E0D0Chess Manager\x0787CEEB]\x01 Game has ended in a draw by stalemate! No winner has been decided!");
     Chess_Round_End();
 }
 
