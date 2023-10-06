@@ -1427,7 +1427,7 @@ class King {
 
     function findLegalMoves(board, occupied, getCurrentRow, getCurrentCol, chessturn, whiteKingPosition, blackKingPosition, checkTile = false, checkLineDetector = false, checkPins = false, tileEliminator = [], inCheck = false) {
         /*
-        Code Reference:
+        Code reference:
         https://www.geeksforgeeks.org/total-position-where-king-can-reach-on-a-chessboard-in-exactly-m-moves-set-2/
         */
         if (chessturn != color || checkLineDetector || checkPins) {
