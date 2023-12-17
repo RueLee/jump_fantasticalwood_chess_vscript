@@ -1,5 +1,9 @@
 /*
 Copyright © 2023 RueLee, All rights reserved.
+
+NOTE: Some chunk of codes were adapted from different sources and credits are given
+by showing certain URLs. If you're the author of the code and still not satisfied with the look or if I have missed someone (or any other reason(s)),
+please open an issue via GitHub and I'll be happy to resolve with you!
 */
 
 ClearGameEventCallbacks();
@@ -244,7 +248,7 @@ class Knight {
 
     function findLegalMoves(board, occupied, getCurrentRow, getCurrentCol, chessturn, whiteKingPosition, blackKingPosition, checkTile = false, checkLineDetector = false, checkPins = false) {
         /*
-        Code reference: https://www.geeksforgeeks.org/possible-moves-knight/
+        Adapted from: https://www.geeksforgeeks.org/possible-moves-knight/
         */
         if (chessturn != color || checkPins) {
             return [];
@@ -316,8 +320,7 @@ class Knight {
 }
 
 /*
-Bishop, Rook, and Queen class have been referenced from: https://github.com/jlundstedt/chess-java
-However, it has been heavily modified to match this programming language, game compatibility, and code algorithms.
+Bishop, Rook, and Queen findLegalMoves() functions were adapted from: https://github.com/jlundstedt/chess-java
 */
 
 class Bishop {
@@ -1427,7 +1430,7 @@ class King {
 
     function findLegalMoves(board, occupied, getCurrentRow, getCurrentCol, chessturn, whiteKingPosition, blackKingPosition, checkTile = false, checkLineDetector = false, checkPins = false, tileEliminator = [], inCheck = false) {
         /*
-        Code reference:
+        Adapted from:
         https://www.geeksforgeeks.org/total-position-where-king-can-reach-on-a-chessboard-in-exactly-m-moves-set-2/
         */
         if (chessturn != color || checkLineDetector || checkPins) {
@@ -1810,6 +1813,7 @@ function Apply_Piece_Move(params) {
                     if (occupied_piece_board[i][j].getMoveCounter() >= 6) {
                         EntFire("promotion_*", "unlock");
                         EntFire("chess_light_sideways", "turnon");
+                        EntFire("arrow_point_promotion_relay", "trigger");
                         promotion_status = true;
                         getCurrentRow = i;
                         getCurrentCol = j;
